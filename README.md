@@ -1,4 +1,4 @@
-# Run Locust Docker with a custom locustfile.py on OpenShift
+# Build custom Locust Docker and deploy to OpenShift
 How to run on Windows Subsystem for Linux (WSL) and how to create a custom Docker image.
 
 # Run the official Docker image with a custom locustfile
