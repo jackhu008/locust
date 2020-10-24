@@ -95,4 +95,4 @@ NAME     HOST/PORT                                                   PATH   SERV
 locust   locust-locust-test.your.openshift.cluster.appdomain.cloud          locust     8089  ...
 ```
 **Test:**
-Browse to http:locust-locust-test.your.openshift.cluster.appdomain.cloud to confirm that you can see the Locust UI. 
+Browse to http://locust-locust-test.your.openshift.cluster.appdomain.cloud to confirm that you can see the Locust UI. 
