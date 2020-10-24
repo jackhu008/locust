@@ -1,8 +1,9 @@
-# Run Locust as a Docker container with a custom locustfile.py
-Tips for WSL (Windows Subsystem for Linux) users and creation of a custom Docker image.
-Ref https://docs.locust.io/en/stable/running-locust-docker.html
+# Run Locust Docker with a custom locustfile.py
+How to run on Windows Subsystem for Linux (WSL) and how to create a custom Docker image.
 
 # Run the official Docker image with a custom locustfile
+
+Ref https://docs.locust.io/en/stable/running-locust-docker.html
 
 ```
 $ docker run -p 8089:8089 -v $PWD:/mnt/locust locustio/locust:1.3.1 -f /mnt/locust/locusttest1.py
@@ -22,6 +23,7 @@ $ docker run -p 8089:8089 -v /c/Users/[Windows_user]/Documents/JHU/Locust:/mnt/l
 ```
 
 **Troubleshooting tips:**
+
 You can add `-it --entrypoint bash` in front of the image in the docker run command to override the entrypoint command and log onto the container to inspect it.
 
 ```
