@@ -30,6 +30,10 @@ You can add `-it --entrypoint bash` in front of the image in the docker run comm
 docker run -p 8089:8089 -v /c/Users/[Windows_user]/Documents/JHU/Locust:/mnt/locust -it --entrypoint bash locustio/locust:1.3.1
 ```
 
+**Test:**
+Browse to http://localhost:8089/ to confirm that you can see the Locust UI.
+
+
 # Create a custom Docker image with a custom locustfile and the official base image
 
 Create a Dockerfile to copy a custom locustfile into the base image locustio/locust:1.3.1:
@@ -60,3 +64,5 @@ Override ENTRYPOINT command to log onto the container to inspect it:
 docker run -p 8089:8089 -it  --entrypoint bash jackhu008/locust:1.3.1
 ```
 
+**Test:**
+Browse to http://localhost:8089/ to confirm that you can see the Locust UI.
