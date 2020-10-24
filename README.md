@@ -1,4 +1,4 @@
-# Run Locust Docker with a custom locustfile.py
+# Run Locust Docker with a custom locustfile.py on OpenShift
 How to run on Windows Subsystem for Linux (WSL) and how to create a custom Docker image.
 
 # Run the official Docker image with a custom locustfile
@@ -66,3 +66,33 @@ docker run -p 8089:8089 -it  --entrypoint bash jackhu008/locust:1.3.1
 
 **Test:**
 Browse to http://localhost:8089/ to confirm that you can see the Locust UI.
+
+
+# Deploy the Locust to OpenShift
+
+Push the custom image to Docker Hub
+
+```
+$ docker images
+$ docker push jackhu008/locust
+```
+This pushes the custom image to https://hub.docker.com/r/jackhu008/locust .
+
+Deploy to OpenShift:
+
+```
+$ oc new-app jackhu008/locust:1.3.1
+...
+
+$ oc get svc
+NAME     TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)             AGE
+locust   ClusterIP   172.21.9.234   <none>        5557/TCP,8089/TCP   18m
+
+$ oc expose svc/locust --port 8089
+
+$ oc get routes
+NAME     HOST/PORT                                                   PATH   SERVICES   PORT  ...
+locust   locust-locust-test.your.openshift.cluster.appdomain.cloud          locust     8089  ...
+```
+**Test:**
+Browse to http:locust-locust-test.your.openshift.cluster.appdomain.cloud to confirm that you can see the Locust UI.
