@@ -7,3 +7,11 @@ class QuickstartUser(HttpUser):
     def index_page(self):
         self.client.get("/")
 
+    @task
+    def greeting_page(self):
+        self.client.get("/hello")
+        self.client.get("/hello/Hero")
+
+    @task
+    def quote_page(self):
+        self.client.get("/quote")
